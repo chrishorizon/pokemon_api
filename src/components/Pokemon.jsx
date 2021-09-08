@@ -9,7 +9,7 @@ const Pokemon = () => {
 
     // useEffect(() => {
     const getPoke = (e) => {
-        fetch('https://pokeapi.co/api/v2/pokemon/')
+        fetch('https://pokeapi.co/api/v2/pokemon?limit=807')
         .then(response => response.json())
         .then(response => setPokemon(response.results))
         .catch(err=> console.log(err))
