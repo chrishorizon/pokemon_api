@@ -9,6 +9,8 @@ const Pokemon = () => {
     const[ pokemon, setPokemon] = useState([]);
     // const[loading, setLoading] = useState(true);
 
+    // Highlighted useEffect below is for if we want to render info at start and
+    // add a loading message.
     // useEffect(() => {
         const getPoke = (e) => {
         //     setLoading(true)
