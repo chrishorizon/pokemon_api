@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from 'react'
+import axios from 'axios'
 
 const Pokemon = () => {
 
@@ -6,19 +7,20 @@ const Pokemon = () => {
     // first variable is the current state we are using (data)
     // second variable is the method we use to update our state (update data)
     const[ pokemon, setPokemon] = useState([]);
+    // const[loading, setLoading] = useState(true);
 
     // useEffect(() => {
-    const getPoke = (e) => {
-        fetch('https://pokeapi.co/api/v2/pokemon?limit=807')
-        .then(response => response.json())
-        .then(response => setPokemon(response.results))
+        const getPoke = (e) => {
+        //     setLoading(true)
+        axios.get('https://pokeapi.co/api/v2/pokemon?limit=807')
+        .then(response => {
+            // setLoading(false)
+            setPokemon(response.data.results)})
         .catch(err=> console.log(err))
     }
     // }, []);
 
-    const clickHandler = () =>{
-        console.log(pokemon)
-    }
+    // if (loading) return "Loading..."
 
     return (
         <div>
